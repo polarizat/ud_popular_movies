@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/author_reviewLi_tv"
+        style="@style/TextViewBodyStyle"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="0dp"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Stephen Campbell" />
+
+    <TextView
+        android:id="@+id/content_reviewLi_tv"
+        style="@style/TextViewBodyStyleLight"
+        android:textStyle="italic"
+        android:textSize="12sp"
+
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/author_reviewLi_tv"
+        tools:text="Ad Astra’ is about as art house as Hollywood cinema gets; disguising a metaphysical drama as an action-packed sci-fi adventure is a clever move for James Gray. While not perfect, it’s consistently entertaining whilst offering an introspective investigation on how parents influence their children. While a journey to the outer realms of our solar system, ‘Ad Astra’ is also an exploration of the human heart. Charlie David Page\n\n\Read Charlie's full article...\n\nhttps://www.maketheswitch.com.au/article/review-ad-astra-a-luscious-and-meticulous-space-drama" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="gone"
+        android:background="@color/colorAccent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_reviewLi_tv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

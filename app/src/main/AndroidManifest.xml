@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity">
+            android:name=".ui.main.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,8 +22,8 @@
         </activity>
 
         <activity
-            android:name=".MovieDetailActivity"
-            android:parentActivityName="com.example.popularmoviesapp.MainActivity"
+            android:name=".ui.movie_detail.MovieDetailActivity"
+            android:parentActivityName="com.example.popularmoviesapp.ui.main.MainActivity"
             android:label="Movie Detail">
         </activity>
 

@@ -1,7 +1,6 @@
-package com.example.popularmoviesapp;
+package com.example.popularmoviesapp.ui.main;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,28 +9,27 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.popularmoviesapp.model.Movie;
-import com.example.popularmoviesapp.utilities.NetworkUtils;
-import com.example.popularmoviesapp.utilities.TmdbJsonUtils;
+import com.example.popularmoviesapp.R;
+import com.example.popularmoviesapp.data.database.MovieEntry;
+import com.example.popularmoviesapp.data.network.NetworkUtils;
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;
 import java.util.LinkedList;
-
-import static android.content.ContentValues.TAG;
+import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
 
-    private LinkedList<Movie> mMoviesList;
+    private List<MovieEntry> mMoviesList;
     final private ListItemClickListener mOnClickLister;
 
-    public MoviesAdapter (LinkedList<Movie> moviesList, ListItemClickListener listener){
+    public MoviesAdapter (List<MovieEntry> moviesList, ListItemClickListener listener){
         mMoviesList = moviesList;
         mOnClickLister = listener;
     }
 
     public interface ListItemClickListener{
-        void onMoviePosterClick(Movie movie);
+        void onMoviePosterClick(MovieEntry movie);
     }
 
     @NonNull
@@ -39,9 +37,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        boolean shouldAttachToParentImmediately = false;
 
-        View view = inflater.inflate(R.layout.movie_list_item, viewGroup, shouldAttachToParentImmediately);
+        View view = inflater.inflate(R.layout.movie_list_item, viewGroup, false);
         MovieViewHolder viewHolder = new MovieViewHolder(view);
 
         return viewHolder;
@@ -56,6 +53,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     @Override
     public int getItemCount() {
         return mMoviesList.size();
+    }
+
+    public void setNewList(List<MovieEntry> list){
+        if (list != null){
+            mMoviesList.clear();
+            mMoviesList.addAll(list);
+            notifyDataSetChanged();
+        }
     }
 
 
@@ -80,7 +85,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
         @Override
         public void onClick(View v) {
-            Movie movie = mMoviesList.get(getAdapterPosition());
+            MovieEntry movie = mMoviesList.get(getAdapterPosition());
             mOnClickLister.onMoviePosterClick(movie);
         }
     }

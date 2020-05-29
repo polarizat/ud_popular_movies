@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/name_trailer_tv"
+        style="@style/TextViewBodyStyleLight"
+        android:layout_width="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="0dp"
+        android:textStyle="bold"
+        android:maxLines="2"
+        app:layout_constraintEnd_toStartOf="@+id/platform_trailer_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Stephen Campbell" />
+
+    <ImageView
+        android:id="@+id/play_trailer_iv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="68dp"
+        android:src="@drawable/ic_youtube"
+        app:layout_constraintBottom_toBottomOf="@+id/platform_trailer_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/platform_trailer_tv"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/type_trailer_tv"
+        style="@style/TextViewBodyStyleLight"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="0dp"
+        android:textSize="12sp"
+        android:textStyle="italic"
+
+        android:textColor="@color/colorTextPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_trailer_tv"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Trailer" />
+
+    <TextView
+        android:id="@+id/platform_trailer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:padding="4dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/play_trailer_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="YouTube" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
